@@ -28,7 +28,7 @@ TRAIN_XML_DIR = os.path.join(paths['ANNOTATION_PATH'], 'train')
 TEST_XML_DIR = os.path.join(paths['ANNOTATION_PATH'], 'test')
 OUTPUT_DIR = paths['ANNOTATION_PATH']
 
-%run {TF_RECORD_SCRIPT} -traini {TRAIN_IMAGE_DIR} -testi {TEST_IMAGE_DIR} -trainxml {TRAIN_XML_DIR} -testxml {TEST_XML_DIR} -output {OUTPUT_DIR}
+%run {TF_RECORD_SCRIPT} -traini {TRAIN_IMAGE_DIR} -testi {TEST_IMAGE_DIR} -trainxml {TRAIN_XML_DIR} -testxml {TEST_XML_DIR} -output {OUTPUT_DIR} -label_map {LABELMAP_DIR}
 """
 
 
