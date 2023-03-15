@@ -1,6 +1,6 @@
 """
 Usage:
-    python xml_to_tfrecord.py -traini /path/to/train/images -testi /path/to/test/images -trainxml /path/to/train/xmls -testxml /path/to/test/xmls -output /path/to/output/folder
+    python xml_to_tfrecord.py -traini /path/to/train/images -testi /path/to/test/images -trainxml /path/to/train/xmls -testxml /path/to/test/xmls -output /path/to/output/folder -label_map /path/to/label_map.pbtxt
 
 Arguments:
     -traini, --train_image_dir : Path to the directory containing train images.
@@ -8,16 +8,17 @@ Arguments:
     -trainxml, --train_xml_dir : Path to the directory containing train XML files.
     -testxml, --test_xml_dir   : Path to the directory containing test XML files.
     -output, --output_dir      : Path to the output directory for CSV and TFRecord files (optional, default: current directory).
+    -label_map, --label_map_file: Path to the label_map.pbtxt file.
 
 Example:
-    python xml_to_tfrecord.py -traini /data/train/images -testi /data/test/images -trainxml /data/train/xmls -testxml /data/test/xmls -output /data/output
+    python xml_to_tfrecord.py -traini /data/train/images -testi /data/test/images -trainxml /data/train/xmls -testxml /data/test/xmls -output /data/output -label_map /data/label_map.pbtxt
 """
 """
 Usage in Jupyter Notebook:
-    %run xml_to_tfrecord.py -traini /path/to/train/images -testi /path/to/test/images -trainxml /path/to/train/xmls -testxml /path/to/test/xmls -output /path/to/output/folder
+    %run xml_to_tfrecord.py -traini /path/to/train/images -testi /path/to/test/images -trainxml /path/to/train/xmls -testxml /path/to/test/xmls -output /path/to/output/folder -label_map /path/to/label_map.pbtxt
 
 Example:
-    %run xml_to_tfrecord.py -traini /data/train/images -testi /data/test/images -trainxml /data/train/xmls -testxml /data/test/xmls -output /data/output
+    %run xml_to_tfrecord.py -traini /data/train/images -testi /data/test/images -trainxml /data/train/xmls -testxml /data/test/xmls -output /data/output -label_map /data/label_map.pbtxt
 """
 """
 TF_RECORD_SCRIPT = files['TF_RECORD_SCRIPT']
@@ -36,7 +37,7 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 import tensorflow as tf
-from object_detection.utils import dataset_util
+from object_detection.utils import dataset_util, label_map_util
 import io
 from PIL import Image
 import argparse
@@ -61,11 +62,20 @@ def xml_to_csv(path):
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     return xml_df
 
-def class_text_to_int(row_label):
-    if row_label == 'your_class_name':
-        return 1
-    else:
-        return None
+def class_text_to_int(row_label, label_map):
+    return label_map.get(row_label, None)
+
+def parse_label_map(label_map_file):
+    label_map = {}
+    with open(label_map_file, 'r') as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            if "name" in line:
+                name = line.strip().split(":")[-1].strip().strip("'")
+                id_line = lines[i + 1]
+                id = int(id_line.strip().split(":")[-1].strip())
+                label_map[name] = id
+    return label_map
 
 def create_tf_example(group, path):
     with tf.io.gfile.GFile(os.path.join(path, '{}'.format(group.filename)), 'rb') as fid:
@@ -89,7 +99,7 @@ def create_tf_example(group, path):
         ymins.append(row['ymin'] / height)
         ymaxs.append(row['ymax'] / height)
         classes_text.append(row['class'].encode('utf8'))
-        classes.append(class_text_to_int(row['class']))
+        classes.append(class_text_to_int(row['class'], label_map))
 
     tf_example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': dataset_util.int64_feature(height),
@@ -122,6 +132,7 @@ def generate_tfrecords(image_dir, csv_input, output_path):
     print(f'Successfully created the {output_path} file')
 
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Convert XML files to TensorFlow Record files')
     parser.add_argument('-traini', '--train_image_dir', dest='train_image_dir', type=str, required=True, help='Path to train images')
@@ -129,9 +140,13 @@ if __name__ == '__main__':
     parser.add_argument('-trainxml', '--train_xml_dir', dest='train_xml_dir', type=str, required=True, help='Path to train XML files')
     parser.add_argument('-testxml', '--test_xml_dir', dest='test_xml_dir', type=str, required=True, help='Path to test XML files')
     parser.add_argument('-output', '--output_dir', dest='output_dir', type=str, default='.', help='Path to the output directory for CSV and TFRecord files (optional, default: current directory)')
+    parser.add_argument('-label_map', '--label_map_file', dest='label_map_file', type=str, required=True, help='Path to the label_map.pbtxt file')
 
     args = parser.parse_args()
-
+    
+    # Parse the label_map.pbtxt file
+    label_map = parse_label_map(args.label_map_file)
+    
     # Convert XMLs to CSVs
     train_csv = xml_to_csv(args.train_xml_dir)
     test_csv = xml_to_csv(args.test_xml_dir)
