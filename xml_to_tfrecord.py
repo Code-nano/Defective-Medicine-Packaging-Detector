@@ -44,10 +44,10 @@ import argparse
 
 def xml_to_csv(path):
     xml_list = []
-    for root, dirs, files in os.walk(path):
+    for xml_root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(".xml"):
-                xml_file = os.path.join(root, file)
+                xml_file = os.path.join(xml_root, file)
                 tree = ET.parse(xml_file)
                 root = tree.getroot()
                 for member in root.findall('object'):
