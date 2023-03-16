@@ -44,12 +44,13 @@ import argparse
 
 def xml_to_csv(path):
     xml_list = []
-    for xml_root, dirs, files in os.walk(path):
+    for root, dirs, files in os.walk(path):
         for file in files:
-            if file.endswith(".xml"):
-                xml_file = os.path.join(xml_root, file)
+            if file.endswith('.xml'):
+                xml_file = os.path.join(root, file)
                 tree = ET.parse(xml_file)
                 root = tree.getroot()
+
                 for member in root.findall('object'):
                     value = (root.find('filename').text,
                              int(root.find('size')[0].text),
@@ -58,12 +59,13 @@ def xml_to_csv(path):
                              int(member[4][0].text),
                              int(member[4][1].text),
                              int(member[4][2].text),
-                             int(member[4][3].text)
-                             )
+                             int(member[4][3].text),
+                             os.path.relpath(os.path.dirname(xml_file), path))  # Update this line
                     xml_list.append(value)
-    column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
+    column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax', 'relative_path']
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     return xml_df
+
 
 def class_text_to_int(row_label, label_map):
     return label_map.get(row_label, None)
