@@ -44,20 +44,23 @@ import argparse
 
 def xml_to_csv(path):
     xml_list = []
-    for xml_file in glob.glob(path + '/*.xml'):
-        tree = ET.parse(xml_file)
-        root = tree.getroot()
-        for member in root.findall('object'):
-            value = (root.find('filename').text,
-                     int(root.find('size')[0].text),
-                     int(root.find('size')[1].text),
-                     member[0].text,
-                     int(member[4][0].text),
-                     int(member[4][1].text),
-                     int(member[4][2].text),
-                     int(member[4][3].text)
-                     )
-            xml_list.append(value)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith(".xml"):
+                xml_file = os.path.join(root, file)
+                tree = ET.parse(xml_file)
+                root = tree.getroot()
+                for member in root.findall('object'):
+                    value = (root.find('filename').text,
+                             int(root.find('size')[0].text),
+                             int(root.find('size')[1].text),
+                             member[0].text,
+                             int(member[4][0].text),
+                             int(member[4][1].text),
+                             int(member[4][2].text),
+                             int(member[4][3].text)
+                             )
+                    xml_list.append(value)
     column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     return xml_df
@@ -78,7 +81,7 @@ def parse_label_map(label_map_file):
     return label_map
 
 def create_tf_example(group, path):
-    with tf.io.gfile.GFile(os.path.join(path, '{}'.format(group.filename)), 'rb') as fid:
+    with tf.io.gfile.GFile(os.path.join(path, group.relative_path, '{}'.format(group.filename)), 'rb') as fid:
         encoded_jpg = fid.read()
     encoded_jpg_io = io.BytesIO(encoded_jpg)
     image = Image.open(encoded_jpg_io)
@@ -119,17 +122,17 @@ def create_tf_example(group, path):
 
 def generate_tfrecords(image_dir, csv_input, output_path):
     writer = tf.io.TFRecordWriter(output_path)
-    path = os.path.join(image_dir)
     examples = pd.read_csv(csv_input)
-    grouped = examples.groupby('filename')
+    grouped = examples.groupby(['filename', 'relative_path'])
 
-    for group in grouped.groups.keys():
-        group_data = grouped.get_group(group)
-        tf_example = create_tf_example(group_data, path)
+    for group_keys in grouped.groups.keys():
+        group_data = grouped.get_group(group_keys)
+        tf_example = create_tf_example(group_data, image_dir)
         writer.write(tf_example.SerializeToString())
 
     writer.close()
     print(f'Successfully created the {output_path} file')
+
 
 
 
@@ -150,9 +153,12 @@ if __name__ == '__main__':
     # Convert XMLs to CSVs
     train_csv = xml_to_csv(args.train_xml_dir)
     test_csv = xml_to_csv(args.test_xml_dir)
+    
+    train_csv['relative_path'] = train_csv['filename'].apply(lambda x: os.path.dirname(os.path.relpath(os.path.join(args.train_xml_dir, x), args.train_image_dir)))
+    test_csv['relative_path'] = test_csv['filename'].apply(lambda x: os.path.dirname(os.path.relpath(os.path.join(args.test_xml_dir, x), args.test_image_dir)))
+    
     train_csv.to_csv(os.path.join(args.output_dir, 'train_labels.csv'), index=None)
     test_csv.to_csv(os.path.join(args.output_dir, 'test_labels.csv'), index=None)
-    print("Successfully created train_labels.csv and test_labels.csv in", args.output_dir)
 
     # Generate TFRecords
     generate_tfrecords(args.train_image_dir, os.path.join(args.output_dir, 'train_labels.csv'), os.path.join(args.output_dir, 'train.record'))
