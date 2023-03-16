@@ -1,6 +1,6 @@
-Tensorflow/
-3.0 test.ipynb/
-xml_to_tfrecord.py/
+3.0 test.ipynb
+xml_to_tfrecord.py
 .ipynb_checkpoints/
-2.0 test train split.ipynb/
+2.0 test train split.ipynb
 test3.ipynb
+Tensorflow/
