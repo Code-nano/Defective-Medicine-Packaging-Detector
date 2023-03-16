@@ -123,6 +123,13 @@ def create_tf_example(group, path):
 def generate_tfrecords(image_dir, csv_input, output_path):
     writer = tf.io.TFRecordWriter(output_path)
     examples = pd.read_csv(csv_input)
+    
+    # Check for missing values in the 'relative_path' column
+    missing_values = examples['relative_path'].isna()
+    if missing_values.any():
+        print("Warning: Missing values found in the 'relative_path' column:")
+        print(examples[missing_values])
+
     grouped = examples.groupby(['filename', 'relative_path'])
 
     for group_keys in grouped.groups.keys():
@@ -132,9 +139,6 @@ def generate_tfrecords(image_dir, csv_input, output_path):
 
     writer.close()
     print(f'Successfully created the {output_path} file')
-
-
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Convert XML files to TensorFlow Record files')
