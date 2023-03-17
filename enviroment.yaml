@@ -33,3 +33,4 @@ dependencies:
     - gin-config
     - numpy
     - setuptools
+    - scikit-learn
