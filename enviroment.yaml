@@ -1,0 +1,35 @@
+name: object_detection_env_test
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip
+  - pip:
+    - opencv-python-headless
+    - opencv-python
+    - matplotlib
+    - tensorflow
+    - tf_slim
+    - wget
+    - protobuf
+    - absl-py
+    - cython
+    - pandas
+    - contextlib2
+    - jupyter
+    - lxml
+    - pillow
+    - xmljson
+    - tqdm
+    - argparse
+    - future
+    - pathlib
+    - six
+    - wheel
+    - pyyaml
+    - tensorboard
+    - typing
+    - gin-config
+    - numpy
+    - setuptools
