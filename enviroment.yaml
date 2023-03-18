@@ -1,36 +1,28 @@
-name: object_detection_env_test
+name: ds-c-tfod-test
 channels:
   - defaults
   - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.8
+  - pandas
+  - scikit-learn
+  - tensorflow
+  - keras
+  - opencv
+  - numpy
+  - tqdm
+  - google-auth
+  - google-auth-oauthlib
+  - google-auth-httplib2
+  - matplotlib
+  - pillow
+  - jupyter
+  - nbconvert
+  - nbformat
   - pip
   - pip:
-    - opencv-python-headless
-    - opencv-python
-    - matplotlib
-    - tensorflow
-    - tf_slim
-    - wget
-    - protobuf
-    - absl-py
-    - cython
-    - pandas
-    - contextlib2
-    - jupyter
-    - lxml
-    - pillow
-    - xmljson
-    - tqdm
-    - argparse
-    - future
-    - pathlib
     - six
-    - wheel
-    - pyyaml
-    - tensorboard
-    - typing
-    - gin-config
     - numpy
-    - setuptools
-    - scikit-learn
+    - wheel
+    - packaging
+    - keras_preprocessing
