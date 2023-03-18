@@ -30,3 +30,9 @@ dependencies:
     - packaging
     - keras_preprocessing
     - bash
+    - opencv-python
+    - wget
+    - pycocotools
+    - tensorflow-addons
+    - pyyaml
+    - tensorflow-text
