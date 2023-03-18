@@ -20,10 +20,13 @@ dependencies:
   - nbconvert
   - nbformat
   - pip
-  - bash
+  - cudatoolkit=11.2
+  - cudnn=8.1.0
   - pip:
+    - "tensorflow<2.11"
     - six
     - numpy
     - wheel
     - packaging
     - keras_preprocessing
+    - bash
