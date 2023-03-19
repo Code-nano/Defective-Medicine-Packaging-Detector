@@ -1,4 +1,6 @@
-name: ds-c-tfod-test
+# use this command to run it 
+# keep in mind the correct terminal path 
+name: ds-c-tfod-01
 channels:
   - defaults
   - conda-forge
