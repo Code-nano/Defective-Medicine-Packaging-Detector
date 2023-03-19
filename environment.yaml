@@ -1,4 +1,5 @@
 # use this command to run it 
+# conda env create -f environment.yaml
 # keep in mind the correct terminal path 
 name: ds-c-tfod-01
 channels:
