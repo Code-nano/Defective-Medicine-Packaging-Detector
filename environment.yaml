@@ -39,3 +39,4 @@ dependencies:
     - tensorflow-addons
     - pyyaml
     - tensorflow-text
+    - gin-config
