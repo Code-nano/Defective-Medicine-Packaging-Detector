@@ -40,3 +40,4 @@ dependencies:
     - pyyaml
     - tensorflow-text
     - gin-config
+    - tensorflowjs
