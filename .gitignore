@@ -3,4 +3,5 @@ xml_to_tfrecord.py
 .ipynb_checkpoints/
 2.0 test train split.ipynb
 test3.ipynb
+image_split_tracking.txt
 Tensorflow/
