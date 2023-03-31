@@ -97,8 +97,13 @@ Generate TensorFlow records for training and evaluation
 ## Contributions
 If you have any suggestions or improvements, feel free to create a pull request or open an issue.
 
-## License
-This repository is licensed under the MIT License.
-
-## Acknowledgments
+## Acknowledgments and License Information
 I'd like to thank the open-source community for providing the resources and tools for this project.
+
+This project uses the following open-source libraries:
+
+- [labelImg](https://github.com/heartexlabs/labelImg.git) (MIT License)
+- [TensorFlow](https://github.com/tensorflow/models.git) (Apache 2.0 License)
+- [OpenCV](https://github.com/opencv/opencv.git) (Apache 2.0 License)
+
+Please see the [LICENSE](LICENSE) file for the full text of each license.
