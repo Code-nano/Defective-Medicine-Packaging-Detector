@@ -1,21 +1,23 @@
 # TensorFlow Object Detection Repository
 
-Welcome to my TensorFlow Object Detection Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that i've made, modified and used to implement object detection using TensorFlow.  
+Welcome to my TensorFlow Object Detection Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that I've made, modified, and used to implement object detection using TensorFlow.
 
-Table of Contents:
+## Table of Contents
 - 0.0 Testing GPU.ipynb
 - 1.0 Image collection.ipynb
 - 2.0 Split images to train-test.ipynb
-- 2.1 split images (alternative).ipynb
+- 2.1 Split images (alternative).ipynb
 - 3.0 Training and Detection.ipynb
 
-Getting Started
+## Getting Started
 To get started, clone this repository and install the required dependencies. Follow the instructions in each notebook to execute the code.
 
 bash
+## Clone the repository
+git clone <repository_url>
 
 
-Dependencies
+## Dependencies
 Make sure you have the following dependencies installed:
 
 i used an anconda enviroment 
