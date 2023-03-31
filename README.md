@@ -1,6 +1,6 @@
 # TensorFlow Object Detection Repository
 
-Welcome to my TensorFlow Object Detection Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that I've either made or modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged containers. using TensorFlow.
+Welcome to my TensorFlow Object Detection Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that I've either made or modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged containers using TensorFlow.
 
 ## Table of Contents
 - [0.0 **Testing GPU.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/0.0%20Testing%20GPU.ipynb)
@@ -23,27 +23,51 @@ I have provided an environment.yaml file to help set up a Conda environment with
 
 To create and activate the environment, follow these steps:
 
-1. Install Anaconda or Miniconda if you haven't already
-2. Create the Conda environment using the environment.yaml file:
+**1.** Install Anaconda or Miniconda if you haven't already
 
-    - if you want to change the environment name, change the name in the environment.yaml file before running the following command:
+**2.** Create the Conda environment using the environment.yaml file:
 
-        ```bash
-        # Creates the Conda environment
-        conda env create -f environment.yaml
-        ```
+- if you want to change the environment name, change the name in the environment.yaml file before running the following command:
 
-3. Activate the new environment
+    ```bash
+    # Creates the Conda environment
+     conda env create -f environment.yaml
+    ```
+**3.** Activate the new environment
+- the default enviroment name is ds-c-tfod-01
 
-# Notebooks
+    ```bash
+    # activates the environment
+    conda activate ds-c-tfod-01
+    ```
+
+## Notebooks
 ### 0.0 Testing GPU.ipynb
 This notebook aims to display the current versions of various Python libraries and check for GPU availability. Specifically, it reports the versions of TensorFlow, Keras, Python, Pandas, and Scikit-Learn, and verifies if a GPU device is available for TensorFlow.
 
 ### 1.0 Image collection.ipynb
 This notebook sets up a real-time image capture and processing pipeline using OpenCV. It captures images from a webcam, crops and resizes them, and saves the resulting images to disk with unique names. The pipeline also provides a countdown timer before each image is captured, which allows users to prepare for the photo. This notebook also installs and compiles the LabelImg tool, which is a graphical image annotation tool used for labeling object bounding boxes in images. It helps to create the required training data for object detection models.
 
+#### Features
+- Set up real-time image capture and processing pipeline using OpenCV
+- Capture images from a webcam
+- Crop and resize captured images
+- Save resulting images to disk with unique names
+- Provide countdown timer before each image capture
+- Install and compile LabelImg tool
+- Use LabelImg for labeling object bounding boxes in images
+- Create training data for object detection models
+
 ### 2.0 Split images to train-test.ipynb
 This notebook splits a dataset of labeled images into training and testing sets, following a specified split ratio (default is 80% for training and 20% for testing). It copies the images and their corresponding XML annotation files to separate train and test folders. The XML files are used to generate a CSV file containing the image filename and its corresponding bounding box coordinates. This CSV file is used to generate a TFRecord file, which is the required format for training object detection models.
+
+#### Features
+- Split labeled images dataset into training and testing sets
+- Follow specified split ratio (default: 80% training, 20% testing)
+- Copy images and corresponding XML annotation files to separate train and test folders
+- Use XML files to generate CSV file with image filename and bounding box coordinates
+- Create TFRecord file from CSV file
+- Prepare dataset in required format for training object detection models
 
 ### 2.1 split images (alternative).ipynb
 This is the improved version of the 2.0 Split images to train-test.ipynb notebook. It uses the same image splitting method as the previous notebook, but it has a few added features.
@@ -71,7 +95,7 @@ Generate TensorFlow records for training and evaluation
 - Zip and export the trained model
 
 ## Contributions
-We welcome contributions to this repository. If you have any suggestions or improvements, feel free to create a pull request or open an issue.
+If you have any suggestions or improvements, feel free to create a pull request or open an issue.
 
 ## License
 This repository is licensed under the MIT License.
