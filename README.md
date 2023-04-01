@@ -4,10 +4,10 @@ This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and mo
 
 ## Table of Contents
 - [0.0 **Testing GPU.ipynb**](#00-testing-gpuipynb)
-- [1.0 **Image collection.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/1.0%20Image%20collection.ipynb)
-- [2.0 **Split images to train-test.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.0%20Split%20images%20to%20train-test.ipynb)
-- [2.1 **Split images (alternative).ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.1%20split%20images%20(alternative).ipynb)
-- [3.0 **Training and Detection.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/3.0%20Training%20and%20Detection.ipynb)
+- [1.0 **Image collection.ipynb**](#10-image-collectionipynb)
+- [2.0 **Split images to train-test.ipynb**](#20-split-images-to-train-testipynb)
+- [2.1 **Split images (alternative).ipynb**](#21-split-images-alternativeipynb)
+- [3.0 **Training and Detection.ipynb**](#30-training-and-detectionipynb)
 
 ## Getting Started
 To get started, clone this repository and setup the environment. Follow the instructions in each notebook to execute the code.
@@ -45,7 +45,7 @@ To create and activate the environment, follow these steps:
 ### <a id="0.0"></a>[0.0 Testing GPU.ipynb](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/0.0%20Testing%20GPU.ipynb)
 This notebook aims to display the current versions of various Python libraries and check for GPU availability. Specifically, it reports the versions of TensorFlow, Keras, Python, Pandas, and Scikit-Learn, and verifies if a GPU device is available for TensorFlow.
 
-### <a id="1.0"></a>1.0 Image collection.ipynb
+### <a id="1.0"></a>[1.0 Image collection.ipynb](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/1.0%20Image%20collection.ipynb)
 This notebook sets up a real-time image capture and processing pipeline using OpenCV. It captures images from a webcam, crops and resizes them, and saves the resulting images to disk with unique names. The pipeline also provides a countdown timer before each image is captured, which allows users to prepare for the photo. This notebook also installs and compiles the LabelImg tool, which is a graphical image annotation tool used for labeling object bounding boxes in images. It helps to create the required training data for object detection models.
 
 #### Features
@@ -58,7 +58,7 @@ This notebook sets up a real-time image capture and processing pipeline using Op
 - Use LabelImg for labeling object bounding boxes in images
 - Create training data for object detection models
 
-### <a id="2.0"></a>2.0 Split images to train-test.ipynb
+### <a id="2.0"></a>[2.0 Split images to train-test.ipynb](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.0%20Split%20images%20to%20train-test.ipynb)
 This notebook splits a dataset of labeled images into training and testing sets, following a specified split ratio (default is 80% for training and 20% for testing). It copies the images and their corresponding XML annotation files to separate train and test folders. The XML files are used to generate a CSV file containing the image filename and its corresponding bounding box coordinates. This CSV file is used to generate a TFRecord file, which is the required format for training object detection models.
 
 #### Features
@@ -69,10 +69,10 @@ This notebook splits a dataset of labeled images into training and testing sets,
 - Create TFRecord file from CSV file
 - Prepare dataset in required format for training object detection models
 
-### <a id="2.1"></a>2.1 split images (alternative).ipynb
+### <a id="2.1"></a>[2.1 split images (alternative).ipynb](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.1%20split%20images%20(alternative).ipynb)
 This is the improved version of the 2.0 Split images to train-test.ipynb notebook. It uses the same image splitting method as the previous notebook, but it has a few added features.
 
-### <a id="3.0"></a>3.0 Training and Detection.ipynb
+### <a id="3.0"></a>[3.0 Training and Detection.ipynb](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/3.0%20Training%20and%20Detection.ipynb)
 This notebook trains an object detection model using TensorFlow Object Detection API. It includes evaluation, real-time object detection from webcam feed, and model export for use in web and mobile applications.
 
 #### Features
