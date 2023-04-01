@@ -14,7 +14,7 @@ To get started, clone this repository and setup the environment. Follow the inst
 
 ```bash
 ## Clone the repository
-git clone https://github.com/Code-nano/Tensortflow_object_detection-01.git
+git clone https://github.com/Code-nano/Defective-Medicine-Packaging-Detector.git
 ```
 
 ## Setting up the Conda Environment
