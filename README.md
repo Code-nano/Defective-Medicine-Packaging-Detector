@@ -1,6 +1,6 @@
-# TensorFlow Object Detection Repository
+# Detect defective medicine packaging using OpenCV and TensorFlow
 
-Welcome to my TensorFlow Object Detection Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged containers using TensorFlow.
+Welcome to my Repository! This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow.
 
 ## Table of Contents
 - [0.0 **Testing GPU.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/0.0%20Testing%20GPU.ipynb)
@@ -81,7 +81,7 @@ This notebook trains an object detection model using TensorFlow Object Detection
 - Download TensorFlow Models Pretrained Models from the Model Zoo
 - Install TensorFlow Object Detection (TFOD) API
 - Create a label map for the dataset
-Generate TensorFlow records for training and evaluation
+- Generate TensorFlow records for training and evaluation
 - Copy the model configuration to the training folder
 - Update the model configuration for transfer learning
 - Train the object detection model

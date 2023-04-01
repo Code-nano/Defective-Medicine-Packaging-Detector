@@ -1,9 +1,7 @@
-MIT License for labelImg
-------------------------------------------
+MIT License
+-----------------------------------
 
-Copyright © 2015 Tzutalin
-
-Copyright © 2013  MIT, Computer Science and Artificial Intelligence Laboratory. Bryan Russell, Antonio Torralba, William T. Freeman
+Copyright (c) 2023 Imran Haiqal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,20 +21,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Apache 2.0 License for TensorFlow and OpenCV
---------------------------------------------
+Notices for labelImg:
+---------------------
+Copyright © 2015 Tzutalin
 
-Copyright [YEAR] [YOUR NAME] and other contributors
+Copyright © 2013 MIT, Computer Science and Artificial Intelligence Laboratory. Bryan Russell, Antonio Torralba, William T. Freeman
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+labelImg is available under the MIT License. More information can be found at https://github.com/tzutalin/labelImg
 
-   http://www.apache.org/licenses/LICENSE-2.0
+This project includes code from TensorFlow and OpenCV, which are licensed under the Apache License, Version 2.0. Their respective licenses and copyright notices can be found in the source code or documentation accompanying the software.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Notices for TensorFlow:
+-----------------------
+Copyright 2015-2023 The TensorFlow Authors.
+TensorFlow is available at https://www.tensorflow.org
+
+Notices for OpenCV:
+-------------------
+Copyright 2000-2023, OpenCV Foundation.
+OpenCV is available at https://opencv.org
+
+By using this project, you acknowledge and agree to comply with the respective terms and conditions of the licenses for labelImg, TensorFlow, and OpenCV.
+
 
