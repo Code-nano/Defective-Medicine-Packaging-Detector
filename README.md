@@ -3,7 +3,7 @@
 This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow. 
 
 ## Table of Contents
-- [0.0 **Testing GPU.ipynb**]
+- [0.0 **Testing GPU.ipynb**](#00-testing-gpuipynb)
 - [1.0 **Image collection.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/1.0%20Image%20collection.ipynb)
 - [2.0 **Split images to train-test.ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.0%20Split%20images%20to%20train-test.ipynb)
 - [2.1 **Split images (alternative).ipynb**](https://github.com/Code-nano/Tensortflow_object_detection-01/blob/b31adc89934316b3a18d8f8ec942389d5d54dc02/2.1%20split%20images%20(alternative).ipynb)
