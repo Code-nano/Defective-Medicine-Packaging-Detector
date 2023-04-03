@@ -3,6 +3,7 @@
 This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow.
 
 ## Table of Contents
+- [Abstract](#abstract)
 - [Getting Started](#getting-started)
 - [Setting up the Conda Environment](#setting-up-the-conda-environment)
 - [0.0 **Testing GPU.ipynb**](#00-testing-gpuipynb)
@@ -12,6 +13,8 @@ This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and mo
 - [3.0 **Training and Detection.ipynb**](#30-training-and-detectionipynb)
 - [Acknowledgments and License Information](#acknowledgments-and-license-information)
 
+## <a id="0.0"></a>Abstract
+Ensuring the quality of medicine packaging is essential for maintaining the safety and efficacy of pharmaceutical products. This project presents a common approach for detecting defective medicine packaging by combining the power of OpenCV and TensorFlow, two popular open-source computer vision and machine learning libraries. This method involves capturing, and preprocessing the images of medicine packaging using OpenCV to enhance the relevant features and reduce noise. As well as train a deep learning model using TensorFlow to classify the images as either defective or non-defective. The results demonstrate that this approach achieves high accuracy in detecting various types of packaging defects, such as damaged seals, or missing tablets. It is important to note that the presented work is meant for testing purposes, and similar technologies are already being utilized in the industry to address packaging defects. However, this project is a good starting point for anyone who wants to learn how to implement object detection using OpenCV and TensorFlow. 
 ## <a id="0.0"></a>Getting Started
 To get started, clone this repository and setup the environment. Follow the instructions in each notebook to execute the code.
 
@@ -101,7 +104,7 @@ This notebook trains an object detection model using TensorFlow Object Detection
 If you have any suggestions or improvements, feel free to create a pull request or open an issue.
 
 ## <a id="0.0"></a>Acknowledgments and License Information
-I'd like to thank the open-source community for providing the resources and tools for this project.
+I'd like to thank the open-source community for providing the resources and tools for this project. I'd also like to thank [Nicholas Renotte](https://github.com/nicknochnack) for the foundational knowledge and basic techniques used for object detection.
 
 This project uses the following open-source libraries:
 
