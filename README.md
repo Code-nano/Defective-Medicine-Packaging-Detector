@@ -1,15 +1,18 @@
 # Detect defective medicine packaging using OpenCV and TensorFlow
 
-This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow. 
+This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow.
 
 ## Table of Contents
+- [Getting Started](#getting-started)
+- [Setting up the Conda Environment](#setting-up-the-conda-environment)
 - [0.0 **Testing GPU.ipynb**](#00-testing-gpuipynb)
 - [1.0 **Image collection.ipynb**](#10-image-collectionipynb)
 - [2.0 **Split images to train-test.ipynb**](#20-split-images-to-train-testipynb)
 - [2.1 **Split images (alternative).ipynb**](#21-split-images-alternativeipynb)
 - [3.0 **Training and Detection.ipynb**](#30-training-and-detectionipynb)
+- [Acknowledgments and License Information](#acknowledgments-and-license-information)
 
-## Getting Started
+## <a id="0.0"></a>Getting Started
 To get started, clone this repository and setup the environment. Follow the instructions in each notebook to execute the code.
 
 ```bash
@@ -17,7 +20,7 @@ To get started, clone this repository and setup the environment. Follow the inst
 git clone https://github.com/Code-nano/Defective-Medicine-Packaging-Detector.git
 ```
 
-## Setting up the Conda Environment
+## <a id="0.0"></a>Setting up the Conda Environment
 
 I have provided an environment.yaml file to help set up a Conda environment with all the necessary dependencies. 
 
@@ -97,7 +100,7 @@ This notebook trains an object detection model using TensorFlow Object Detection
 ## Contributions
 If you have any suggestions or improvements, feel free to create a pull request or open an issue.
 
-## Acknowledgments and License Information
+## <a id="0.0"></a>Acknowledgments and License Information
 I'd like to thank the open-source community for providing the resources and tools for this project.
 
 This project uses the following open-source libraries:
