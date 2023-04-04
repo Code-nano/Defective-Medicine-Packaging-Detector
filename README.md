@@ -1,6 +1,7 @@
 # Detect defective medicine packaging using OpenCV and TensorFlow
 
 This repository contains 5 Jupyter Notebook files (.ipynb) that I've made and modified to implement object detection for Computer vision systems to detect defects and anomalies in medicine packaging, such as broken seals or damaged blister packs using TensorFlow.
+![med4](https://user-images.githubusercontent.com/83939407/229768434-54c833d7-789e-493e-81b5-7fb4bc804931.gif)
 
 ## Table of Contents
 - [**Abstract**](#abstract)
