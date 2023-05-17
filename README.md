@@ -107,7 +107,7 @@ This notebook trains an object detection model using TensorFlow Object Detection
 If you have any suggestions or improvements, feel free to create a pull request or open an issue.
 
 ## <a id="0.0"></a>Acknowledgments and License Information
-I'd like to thank the open-source community for providing the resources and tools for this project. I'd also like to thank [Nicholas Renotte](https://github.com/nicknochnack) for the foundational knowledge and basic techniques used for this project's object detection.
+I'd like to thank the open-source community for providing the resources and tools for this project. I'd also like to thank Nicholas Renotte for the foundational knowledge and basic techniques used for this project's object detection.
 
 This project uses the following open-source libraries:
 
